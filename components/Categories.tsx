@@ -3,16 +3,14 @@ import Link from "next/link";
 
 import { getCategories } from "../services";
 
-const Categories = ({ categories }) => {
-  /**
-//   const [categories, setCategories] = useState([]);
+const Categories = () => {
+  const [categories, setCategories] = useState([]);
 
-//   useEffect(() => {
-//     getCategories().then((newCategories) => {
-//       setCategories(newCategories);
-//     });
-//   }, []);
- */
+  useEffect(() => {
+    getCategories().then((newCategories) => {
+      setCategories(newCategories);
+    });
+  }, []);
 
   return (
     <div className="bg-white shadow-lg rounded-lg p-8 pb-12 mb-8">
@@ -33,10 +31,3 @@ const Categories = ({ categories }) => {
 };
 
 export default Categories;
-
-export async function getStaticProps() {
-  const categories = (await getCategories()) || [];
-  return {
-    props: { categories },
-  };
-}

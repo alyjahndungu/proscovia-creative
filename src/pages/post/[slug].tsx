@@ -8,6 +8,7 @@ import {
   Author,
   Loader,
 } from "../../../components";
+import AdjacentPosts from "../../../sections/AdjacentPosts";
 import { getPosts, getPostDetails } from "../../../services";
 
 const PostDetails = ({ post }) => {
@@ -24,6 +25,7 @@ const PostDetails = ({ post }) => {
           <div className="col-span-1 lg:col-span-8">
             <PostDetail post={post} />
             <Author author={post.author} />
+            <AdjacentPosts slug={post.slug} createdAt={post.createdAt} />
           </div>
           <div className="col-span-1 lg:col-span-4">
             <div className="relative lg:sticky top-8">

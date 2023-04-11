@@ -32,18 +32,22 @@ const PostWidget = ({ categories, slug }) => {
             <Image
               loader={graphCMSImageLoader}
               alt={post.title}
-              height={60}
-              width={60}
               unoptimized
-              className="align-middle rounded-full"
+              className="flex-shrink-0 object-cover object-center btn- flex w-16 h-16 mr-auto -mb-8 ml-auto rounded-full shadow-xl"
               src={post.featuredImage.url}
+              width={0}
+              height={0}
             />
           </div>
           <div className="flex-grow ml-4">
             <p className="text-gray-500 font-xs">
               {moment(post.createdAt).format("MMM DD, YYYY")}
             </p>
-            <Link href={`/post/${post.slug}`} className="text-md" key={index}>
+            <Link
+              href={`/post/${post.slug}`}
+              className="text-yellow-300 text-md"
+              key={index}
+            >
               {post.title}
             </Link>
           </div>

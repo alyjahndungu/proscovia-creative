@@ -9,3 +9,5 @@ export { default as LandingPage } from "./LandingPage";
 export { default as Navbar } from "./Navbar";
 export { default as BlogList } from "./BlogList";
 export { default as Footer } from "./Footer";
+export { default as AdjacentPostCard } from "./AdjacentPostCard";
+export { default as FeaturedPostCard } from "./FeaturedPostCard";

@@ -1,6 +1,9 @@
 import React from "react";
 
+import Image from "next/image";
 import moment from "moment";
+
+import { graphCMSImageLoader } from "../utils/util";
 
 const PostDetail = ({ post }) => {
   const getContentFragment = (index, text, obj, type) => {
@@ -47,7 +50,7 @@ const PostDetail = ({ post }) => {
         );
       case "image":
         return (
-          <img
+          <Image
             key={index}
             alt={obj.title}
             height={obj.height}
@@ -62,25 +65,33 @@ const PostDetail = ({ post }) => {
 
   return (
     <>
-      <div className="bg-white shadow-lg rounded-lg lg:p-8 pb-12 mb-8">
+      <div className="bg-gray-100 shadow-lg rounded-lg lg:p-8 pb-12 mb-8">
         <div className="relative overflow-hidden shadow-md mb-6">
-          <img
+          <Image
+            unoptimized
+            loader={graphCMSImageLoader}
+            alt={post.title}
+            className="rounded-t-lg lg:rounded-lg"
             src={post.featuredImage.url}
-            alt=""
-            className="object-top h-full w-full object-cover  shadow-lg rounded-t-lg lg:rounded-lg"
+            width={0}
+            height={0}
+            sizes="100vw"
+            style={{ width: "100%", height: "auto" }}
           />
         </div>
         <div className="px-4 lg:px-0">
           <div className="flex items-center mb-8 w-full">
             <div className="hidden md:flex items-center justify-center lg:mb-0 lg:w-auto mr-8 items-center">
-              <img
-                alt={post.author.name}
-                height="30px"
-                width="30px"
-                className="align-middle rounded-full"
+              <Image
+                unoptimized
+                loader={graphCMSImageLoader}
                 src={post.author.avatar.url}
+                alt={post.author.name}
+                className="hidden object-cover w-12 h-12 mx-2 rounded-full sm:block"
+                width={0}
+                height={0}
               />
-              <p className="inline align-middle text-gray-700 ml-2 font-medium text-lg">
+              <p className="inline align-middle text-gray-900 ml-2 font-medium text-lg">
                 {post.author.name}
               </p>
             </div>

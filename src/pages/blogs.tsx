@@ -3,6 +3,7 @@ import Navbar from "../../components/Navbar";
 import { BlogList } from "../../components";
 import { getPosts } from "../../services";
 import SearchInput from "../../components/SearchInput";
+import Footer from "../../components/Footer";
 
 const Blogs = ({ posts }) => {
   return (
@@ -10,6 +11,7 @@ const Blogs = ({ posts }) => {
       <Navbar />
       <SearchInput />
       <BlogList posts={posts} />
+      <Footer />
     </div>
   );
 };

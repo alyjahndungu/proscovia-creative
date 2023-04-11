@@ -2,6 +2,7 @@ import { getPosts } from "../../services";
 import LandingPage from "../../components/LandingPage";
 import Navbar from "../../components/Navbar";
 import { BlogList } from "../../components";
+import Footer from "../../components/Footer";
 
 export default function Home({ posts }) {
   return (
@@ -13,6 +14,7 @@ export default function Home({ posts }) {
           Blogs
         </h2>
         <BlogList posts={posts} />
+        <Footer />
       </div>
     </>
   );

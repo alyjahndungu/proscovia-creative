@@ -9,7 +9,6 @@ import {
   Loader,
 } from "../../../components";
 import { getPosts, getPostDetails } from "../../../services";
-import Navbar from "../../../components/Navbar";
 
 const PostDetails = ({ post }) => {
   const router = useRouter();
@@ -20,7 +19,6 @@ const PostDetails = ({ post }) => {
 
   return (
     <>
-      <Navbar />
       <div className="container mx-auto px-10 mb-8 mt-8">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12">
           <div className="col-span-1 lg:col-span-8">

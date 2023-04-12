@@ -2,11 +2,16 @@ import React from "react";
 
 import Image from "next/image";
 import moment from "moment";
+import { Posts } from "../utils/types";
 
 import { graphCMSImageLoader } from "../utils/util";
 
-const PostDetail = ({ post }) => {
-  const getContentFragment = (index, text, obj, type) => {
+interface PostDetailProps {
+  post: Posts;
+}
+
+const PostDetail: React.FC<PostDetailProps> = ({ post }) => {
+  const getContentFragment = (index: any, text: any, obj: any, type: any) => {
     let modifiedText = text;
 
     if (obj) {
@@ -27,7 +32,7 @@ const PostDetail = ({ post }) => {
       case "heading-three":
         return (
           <h3 key={index} className="text-xl font-semibold mb-4">
-            {modifiedText.map((item, i) => (
+            {modifiedText.map((item: any, i: any) => (
               <React.Fragment key={i}>{item}</React.Fragment>
             ))}
           </h3>
@@ -35,7 +40,7 @@ const PostDetail = ({ post }) => {
       case "paragraph":
         return (
           <p key={index} className="mb-8">
-            {modifiedText.map((item, i) => (
+            {modifiedText.map((item: any, i: any) => (
               <React.Fragment key={i}>{item}</React.Fragment>
             ))}
           </p>
@@ -43,7 +48,7 @@ const PostDetail = ({ post }) => {
       case "heading-four":
         return (
           <h4 key={index} className="text-md font-semibold mb-4">
-            {modifiedText.map((item, i) => (
+            {modifiedText.map((item: any, i: any) => (
               <React.Fragment key={i}>{item}</React.Fragment>
             ))}
           </h4>
@@ -116,9 +121,10 @@ const PostDetail = ({ post }) => {
             </div>
           </div>
           <h1 className="mb-8 text-3xl font-semibold">{post.title}</h1>
-          {post.content.raw.children.map((typeObj, index) => {
-            const children = typeObj.children.map((item, itemindex) =>
-              getContentFragment(itemindex, item.text, item)
+          {post.content.raw.children.map((typeObj: any, index: any) => {
+            const children: any = typeObj.children.map(
+              (item: any, itemIndex: any) =>
+                getContentFragment(itemIndex, item.text, item, typeObj)
             );
 
             return getContentFragment(index, children, typeObj, typeObj.type);

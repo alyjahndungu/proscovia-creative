@@ -1,8 +1,14 @@
 import React from "react";
 import moment from "moment";
 import Link from "next/link";
+import { Posts } from "../utils/types";
 
-const AdjacentPostCard = ({ post, position }) => (
+interface AdjacentProps {
+  post: Posts;
+  position: string;
+}
+
+const AdjacentPostCard: React.FC<AdjacentProps> = ({ post, position }) => (
   <>
     <div
       className="absolute rounded-lg bg-center bg-no-repeat bg-cover shadow-md inline-block w-full h-72"

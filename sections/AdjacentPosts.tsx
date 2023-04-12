@@ -3,8 +3,21 @@ import React, { useState, useEffect } from "react";
 import { AdjacentPostCard } from "../components";
 import { getAdjacentPosts } from "../services";
 
-const AdjacentPosts = ({ createdAt, slug }) => {
-  const [adjacentPost, setAdjacentPost] = useState(null);
+interface AdjacentType {
+  createdAt: Date;
+  slug: string;
+}
+
+interface Result {
+  next: string;
+  previous: string;
+}
+
+const AdjacentPosts = ({ createdAt, slug }: AdjacentType) => {
+  const [adjacentPost, setAdjacentPost] = useState<Result>({
+    next: "",
+    previous: "",
+  });
   const [dataLoaded, setDataLoaded] = useState(false);
 
   useEffect(() => {
@@ -12,7 +25,7 @@ const AdjacentPosts = ({ createdAt, slug }) => {
       setAdjacentPost(result);
       setDataLoaded(true);
     });
-  }, [slug]);
+  }, [createdAt, slug]);
 
   return (
     <div className="grid grid-cols-1 lg:grid-cols-8 gap-12 mb-8">

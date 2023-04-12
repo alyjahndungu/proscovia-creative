@@ -1,8 +1,14 @@
 import { getPosts } from "../../services";
 import LandingPage from "../../components/LandingPage";
 import { BlogList } from "../../components";
+import { GetStaticProps } from "next";
+import { Posts } from "../../utils/types";
 
-export default function Home({ posts }) {
+interface HomeProps {
+  posts: Posts;
+}
+
+const Home: React.FC<HomeProps> = ({ posts }) => {
   return (
     <>
       <LandingPage />
@@ -14,11 +20,13 @@ export default function Home({ posts }) {
       </div>
     </>
   );
-}
+};
 
-export async function getStaticProps() {
+export default Home;
+
+export const getStaticProps: GetStaticProps = async () => {
   const posts = (await getPosts()) || [];
   return {
     props: { posts },
   };
-}
+};

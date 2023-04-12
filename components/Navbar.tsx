@@ -4,14 +4,19 @@ import Link from "next/link";
 const Navbar = () => {
   const [navbar, setNavbar] = useState(false);
   return (
-    <nav className="w-full bg-gray-900 shadow">
+    <nav className="w-full  border-gray-200 px-4 lg:px-6 py-2.5 dark:bg-gray-800 shadow">
       <div className="justify-between px-4 mx-auto lg:max-w-7xl md:items-center md:flex md:px-8">
         <div>
           <div className="flex items-center justify-between py-3 md:py-5 md:block">
-            <Link href="/">
-              <h2 className="text-2xl text-yellow-300 font-bold">
-                Proscovia Creatives
-              </h2>
+            <Link href="/" className="flex items-center">
+              <img
+                src="/assets/pros-logo0.png"
+                className="mr-2 h-8 sm:h-9"
+                alt="Proscovia Logo"
+              />
+              <span className="self-center text-xl font-semibold whitespace-nowrap dark:text-white">
+                Proscovia
+              </span>
             </Link>
             <div className="md:hidden">
               <button

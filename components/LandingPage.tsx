@@ -1,11 +1,12 @@
 import React from "react";
 import Link from "next/link";
+import Image from "next/image";
 
 const LandingPage = () => {
   return (
     <div>
       <section>
-        <div className="bg-gray-900 pb-10 text-white py-20">
+        <div className="bg-gray-900 pb-8 text-white py-20">
           <div className="container mx-auto flex flex-col md:flex-row items-center my-12 md:my-24">
             <div className="flex flex-col w-full lg:w-1/3 justify-center items-start p-8">
               <h1 className="text-3xl md:text-5xl p-2 text-yellow-300 tracking-loose">

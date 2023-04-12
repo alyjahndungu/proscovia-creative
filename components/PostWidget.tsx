@@ -25,7 +25,7 @@ const PostWidget: React.FC<PostWidgetProps> = ({ categories, slug }) => {
         setRelatedPosts(result);
       });
     }
-  }, [slug]);
+  }, [categories, slug]);
 
   return (
     <div className="bg-gray-900 shadow-lg rounded-lg p-8 pb-12 mb-8">

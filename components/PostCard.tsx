@@ -11,7 +11,7 @@ interface PostCardProps {
 
 const PostCard: React.FC<PostCardProps> = ({ post }) => {
   return (
-    <div className="max-w-lg mx-auto">
+    <div className="max-w-lg mt-6 mx-auto">
       <div className="bg-gray-100 shadow-md border border-gray-200 rounded-lg max-w-sm h-full mb-5">
         <Image
           unoptimized
@@ -46,10 +46,15 @@ const PostCard: React.FC<PostCardProps> = ({ post }) => {
             </Link>
             <div>
               <div className="flex items-center">
-                <img
+                <Image
+                  unoptimized
+                  loader={graphCMSImageLoader}
                   src={post.author.avatar.url}
                   alt={post.author.name}
                   className="hidden object-cover w-10 h-10 mx-4 rounded-full sm:block"
+                  width={0}
+                  height={0}
+                  style={{ width: "10", height: "10" }}
                 />
                 <h1 className="font-semibold text-sm text-gray-700 hover:underline">
                   {post.author.name}

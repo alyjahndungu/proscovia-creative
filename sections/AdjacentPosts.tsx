@@ -9,8 +9,8 @@ interface AdjacentType {
 }
 
 interface Result {
-  next: string;
-  previous: string;
+  next: any;
+  previous: any;
 }
 
 const AdjacentPosts = ({ createdAt, slug }: AdjacentType) => {

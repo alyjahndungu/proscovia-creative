@@ -17,6 +17,12 @@ interface PostDetailsProps {
   post: Posts;
 }
 
+interface Serve {
+  params: any;
+  slug: string;
+  node: any;
+}
+
 const PostDetails: React.FC<PostDetailsProps> = ({ post }) => {
   const router = useRouter();
 
@@ -49,7 +55,7 @@ const PostDetails: React.FC<PostDetailsProps> = ({ post }) => {
 };
 export default PostDetails;
 
-export const getStaticProps: GetStaticProps = async ({ params }) => {
+export const getStaticProps = async ({ params }: Serve) => {
   const data = await getPostDetails(params.slug);
   return {
     props: {
@@ -61,7 +67,7 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
 export const getStaticPaths: GetStaticPaths = async () => {
   const posts = await getPosts();
   return {
-    paths: posts.map(({ node: { slug } }) => ({ params: { slug } })),
+    paths: posts.map(({ node: { slug } }: Serve) => ({ params: { slug } })),
     fallback: true,
   };
 };

@@ -3,8 +3,13 @@ import moment from "moment";
 import Image from "next/image";
 import Link from "next/link";
 import { graphCMSImageLoader } from "../utils/util";
+import { Posts } from "../utils/types";
 
-const FeaturedPostCard = ({ post }) => (
+interface FeaturedProps {
+  post: Posts;
+}
+
+const FeaturedPostCard: React.FC<FeaturedProps> = ({ post }) => (
   <div className="relative h-72">
     <div
       className="absolute rounded-lg bg-center bg-no-repeat bg-cover shadow-md inline-block w-full h-72"
@@ -24,7 +29,7 @@ const FeaturedPostCard = ({ post }) => (
           loader={graphCMSImageLoader}
           alt={post.author.name}
           className="align-middle h-30 w-30 drop-shadow-lg rounded-full"
-          src={post.author.photo.url}
+          src={post.author.avatar.url}
           width={0}
           height={0}
         />

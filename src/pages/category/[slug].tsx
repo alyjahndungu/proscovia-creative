@@ -10,6 +10,11 @@ interface CategoryPostProps {
   posts: Posts;
 }
 
+interface Serve {
+  params: any;
+  slug: string;
+}
+
 const CategoryPost: React.FC<CategoryPostProps> = ({ posts }) => {
   const router = useRouter();
 
@@ -37,7 +42,7 @@ const CategoryPost: React.FC<CategoryPostProps> = ({ posts }) => {
 };
 export default CategoryPost;
 
-export const getStaticProps: GetStaticProps = async ({ params }) => {
+export const getStaticProps = async ({ params }: Serve) => {
   const posts = await getCategoryPost(params.slug);
 
   return {
@@ -48,7 +53,7 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
 export const getStaticPaths: GetStaticPaths = async () => {
   const categories = await getCategories();
   return {
-    paths: categories.map(({ slug }) => ({ params: { slug } })),
+    paths: categories.map(({ slug }: Serve) => ({ params: { slug } })),
     fallback: true,
   };
 };

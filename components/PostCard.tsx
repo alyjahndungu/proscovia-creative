@@ -2,10 +2,14 @@ import React from "react";
 import Image from "next/image";
 import moment from "moment";
 import Link from "next/link";
-
 import { graphCMSImageLoader } from "../utils/util";
+import { Posts } from "../utils/types";
 
-const PostCard = ({ post }) => {
+interface PostCardProps {
+  post: Posts;
+}
+
+const PostCard: React.FC<PostCardProps> = ({ post }) => {
   return (
     <div className="max-w-lg mx-auto">
       <div className="bg-gray-100 shadow-md border border-gray-200 rounded-lg max-w-sm h-full mb-5">

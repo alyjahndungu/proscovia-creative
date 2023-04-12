@@ -1,4 +1,5 @@
 export interface Posts {
+  [x: string]: any;
   author: {
     id: string;
     name: string;
@@ -19,6 +20,20 @@ export interface Posts {
     slug: string;
   }[];
   featuredImage: {
+    url: string;
+  };
+}
+
+export interface CategoryType {
+  name: string;
+  slug: string;
+}
+
+export interface AuthorType {
+  id: string;
+  name: string;
+  about: string;
+  avatar: {
     url: string;
   };
 }

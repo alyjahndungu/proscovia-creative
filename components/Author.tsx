@@ -2,8 +2,13 @@ import React from "react";
 import Image from "next/image";
 
 import { graphCMSImageLoader } from "../utils/util";
+import { AuthorType } from "../utils/types";
 
-const Author = ({ author }) => (
+interface AuthorProps {
+  author: AuthorType;
+}
+
+const Author: React.FC<AuthorProps> = ({ author }) => (
   <div className="text-left overflow-y-auto sm:p-0 pt-4 pr-4 pb-20 pl-4 bg-gray-900 rounded-lg overflow-hidden align-bottom transition-all transform shadow-2xl sm:align-middle">
     <div className="items-center w-full mr-auto ml-auto relative max-w-7xl md:px-12 lg:px-24">
       <div className="grid grid-cols-1">

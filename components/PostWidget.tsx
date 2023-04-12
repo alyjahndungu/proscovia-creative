@@ -5,8 +5,14 @@ import Link from "next/link";
 
 import { graphCMSImageLoader } from "../utils/util";
 import { getSimilarPosts, getRecentPosts } from "../services";
+import { Posts } from "../utils/types";
 
-const PostWidget = ({ categories, slug }) => {
+interface PostWidgetProps {
+  categories: any;
+  slug: string;
+}
+
+const PostWidget: React.FC<PostWidgetProps> = ({ categories, slug }) => {
   const [relatedPosts, setRelatedPosts] = useState([]);
 
   useEffect(() => {
@@ -26,7 +32,7 @@ const PostWidget = ({ categories, slug }) => {
       <h3 className="text-white text-xl mb-8 font-semibold border-b pb-4">
         {slug ? "Related Posts" : "Recent Posts"}
       </h3>
-      {relatedPosts.map((post, index) => (
+      {relatedPosts.map((post: Posts, index) => (
         <div key={index} className="flex items-center w-full mb-4">
           <div className="w-16 flex-none">
             <Image

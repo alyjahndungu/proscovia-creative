@@ -1,6 +1,14 @@
 import React, { useState } from "react";
 import Link from "next/link";
 
+const navItems = [
+  { title: "Home", url: "/" },
+  { title: "Blogs", url: "/blogs" },
+  { title: "About", url: "/" },
+  { title: "Category", url: "/blogs" },
+  { title: "Contact", url: "/" },
+];
+
 const Navbar = () => {
   const [navbar, setNavbar] = useState(false);
   return (
@@ -63,18 +71,11 @@ const Navbar = () => {
             }`}
           >
             <ul className="items-center justify-center space-y-8 md:flex md:space-x-6 md:space-y-0">
-              <li className="text-white hover:text-blue-600">
-                <Link href="/">Home</Link>
-              </li>
-              <li className="text-white hover:text-blue-600">
-                <Link href="/blogs">Blogs</Link>
-              </li>
-              <li className="text-white hover:text-blue-600">
-                <Link href="javascript.void(0)">About Us</Link>
-              </li>
-              <li className="text-white hover:text-blue-600">
-                <Link href="javascript.void(0)">Contact Us</Link>
-              </li>
+              {navItems.map((navItem, index) => (
+                <li key={index} className="text-white hover:text-blue-600">
+                  <Link href={navItem.url}>{navItem.title}</Link>
+                </li>
+              ))}
             </ul>
           </div>
         </div>
